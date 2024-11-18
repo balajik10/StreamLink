@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const font = Poppins({
   subsets: ["latin"],
-  weight: ["200", "300", "400"], // Ensure weights are separated by commas
+  weight: ["200", "300", "400"],
 });
 
 export const Logo = () => {
@@ -13,16 +14,15 @@ export const Logo = () => {
       <div className="hidden lg:flex items-center gap-x-4 hover:opacity-75 transition">
         <div className="bg-white rounded-full p-1">
           <Image
-            src="/Ssslines.svg" // Ensure the image path is correct
+            src="/Ssslines.svg"
             alt="gamehub"
-            height={32} // height should be a number, not a string
-            width={32}  // width should be a number, not a string
+            height={32}
+            width={32}
           />
         </div>
-        <div>
-          {/* Corrected the misplaced closing tags for paragraphs */}
-          <p>gamehub</p>
-          <p>Let's play</p>
+        <div className={cn(font.className)}>
+          <p className="text-lg font-semibold">gamehub</p>
+          <p className="text-xs text-gray-500">Let's play</p>
         </div>
       </div>
     </Link>
