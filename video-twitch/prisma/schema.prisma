@@ -13,6 +13,41 @@ model User {
   imageUrl       String   @db.Text
   externalUserId String   @unique
   bio            String?  @db.Text
+
+  following Follow[] @relation("Following")
+  followedBy Follow[] @relation("FollowedBy")
+
+  // posts Post[]
+
+  // comments Comment[]
+
+  // likes Like[] @relation("UserLikes")
+
+
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 }
+
+
+model Follow{
+  id            String   @id @default(uuid())
+  followerId     String
+  followingId     String
+  // createdAt      DateTime @default(now())
+  // updatedAt      DateTime @updatedAt
+
+  follower User @relation(name:"Following", fields: [followerId],references: [id],onDelete: Cascade)
+
+  following User @relation(name:"FollowedBy", fields: [followingId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+
+  @@unique([followerId,followingId])
+
+  @@index([followingId])
+  @@index([followerId])
+
+}
+
