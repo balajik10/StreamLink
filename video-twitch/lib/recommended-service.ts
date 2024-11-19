@@ -2,6 +2,7 @@ import { db } from "@/lib/db";
 import { getSelf } from "@/lib/auth-service";
 
 export const getRecommended = async () => {
+
   // Ensure the user is authenticated
   const user = await getSelf();
 
