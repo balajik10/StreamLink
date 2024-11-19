@@ -1,6 +1,7 @@
 "use client";
 import { useSidebar } from "@/store/use-sidebar";
 import { User } from "@prisma/client";
+import { UserItem } from "./user-item";
 
 interface RecommendedProps {
     data: User[]; // Ensure `User` is defined somewhere in your project
@@ -23,6 +24,10 @@ interface RecommendedProps {
             {data.map((user) =>(
                 <UserItem
                 key={user.id}
+                username={user.username}
+                imageUrl={user.imageUrl}
+                isLive={true}
+                />
             ))}
 
         </ul>
