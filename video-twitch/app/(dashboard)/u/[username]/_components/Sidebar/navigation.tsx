@@ -23,7 +23,7 @@ export const Navigation = () => {
         },
         {
             label:"Keys",
-            href:`/u/${user?.username}/Keys`,
+            href:`/u/${user?.username}/keys`,
             icon:KeyRound,
         },
         {
