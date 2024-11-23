@@ -14,22 +14,22 @@ const CreatorLayout = async ({
   params, 
   children 
 }: CreatorLayoutProps) => {
-    const self =await getSelfByUsername(params.username)
+  // Ensure params is available and handle it asynchronously
+  const self = await getSelfByUsername(params.username);
 
-    if (!self) {
-        redirect("/")
-    }
-  // Check the self-user
+  if (!self) {
+    // Redirect to home if the user does not exist or is not authorized
+    redirect("/");
+  }
 
   return (
     <>
       <Navbar />
       <div className="flex h-full pt-20">
-        <Sidebar/>
+        <Sidebar />
         <Container>
           {children}
         </Container>
-
       </div>
     </>
   );
