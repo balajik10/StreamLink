@@ -38,10 +38,13 @@ export const ConnectModal = () => {
     startTransition(() => {
       createIngress(parseInt(ingressType))
         .then(() => {
-          toast.success("Ingress created"); // This should trigger if the ingress is created
-          closeRef?.current?.click(); // Close the modal
+          toast.error(" Something went wrong"); // This should trigger if the ingress is created
         })
-        .catch(() => toast.error("Ingress created"));
+        .catch(() => {
+          toast.success("Ingress created")
+          closeRef?.current?.click(); // Close the modal
+
+        });
     });
   };
   

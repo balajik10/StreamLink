@@ -42,6 +42,13 @@ export const getRecommended = async () => {
           }
         ],
       },
+      include:{
+        stream:{
+          select:{
+            isLive: true, // Filters streams that are currently live
+          }
+        }
+      },
       orderBy: {
         createdAt: "desc", // Orders users by creation date, descending
       },
@@ -49,6 +56,13 @@ export const getRecommended = async () => {
   } else {
     // Fetch users without authentication
     users = await db.user.findMany({
+      include:{
+        stream:{
+          select:{
+            isLive: true, // Filters streams that are currently live
+          }
+        }
+      },
       orderBy: {
         createdAt: "desc", // Orders users by creation date, descending
       },
