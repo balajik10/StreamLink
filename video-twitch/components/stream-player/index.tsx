@@ -11,6 +11,7 @@ import { Chat, ChatSkeleton } from "./chat";
 import { ChatToggle } from "./chat-toggle";
 import { Header, HeaderSkeleton } from "./header";
 import { ChatHeaderSkeleton } from "./chat-header";
+import { InfoCard } from "./info-card";
 
 interface StreamPlayerProps {
   user: User & { stream: Stream | null }; 
@@ -64,6 +65,12 @@ export const StreamPlayer = ({
           />
 
         </div>
+        <InfoCard
+        hostIdentity={user.id}
+        viewerIdentity={identity}
+        name={stream.name}
+        thumbnailUrl={stream.thumbnailUrl}
+        />
         <div
         className={cn(
           "col-span-1",
