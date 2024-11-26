@@ -63,14 +63,15 @@ export const StreamPlayer = ({
             isFollowing={isFollowing}
             name={stream.name}
           />
-
-        </div>
         <InfoCard
         hostIdentity={user.id}
         viewerIdentity={identity}
         name={stream.name}
         thumbnailUrl={stream.thumbnailUrl}
         />
+
+        </div>
+
         <div
         className={cn(
           "col-span-1",
