@@ -269,9 +269,6 @@ export const Chat = ({
     setValue(newValue);
   };
 
-  console.log("Connection State:", connectionState);
-  console.log("Participant:", participant);
-  console.log("isHidden:", isHidden);
 
   return (
     <div className="flex flex-col bg-background border-l border-b pt-0 h-[calc(100vh-80px)]">

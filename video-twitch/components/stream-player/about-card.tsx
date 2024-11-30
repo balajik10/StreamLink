@@ -1,6 +1,7 @@
 "use client";
 
 import { VerifiedMark } from "@/components/verified-mark";
+import { BioModal } from "./bio-model";
 
 interface AboutCardProps {
   hostName: string;
@@ -17,14 +18,12 @@ export const AboutCard = ({
   bio,
   followedByCount,
 }: AboutCardProps) => {
+
+
     const hostAsViewer = `host-${hostIdentity}`;
     const isHost = viewerIdentity === hostAsViewer;
     
     const followedByLabel = followedByCount === 1 ? "follower" : "followers";
-    console.log("Viewer Identity:", viewerIdentity);
-    console.log("Host Identity:", hostIdentity);
-    console.log("Host as Viewer:", hostAsViewer);
-    console.log("Is Host:", isHost);
 
     
     return (
@@ -36,15 +35,19 @@ export const AboutCard = ({
               <VerifiedMark />
             </div>
             {isHost &&(
-                <p>EDIT</p>
+                 <BioModal initialValue={bio}/>
             )}
           </div>
           <div className="text-sm text-muted-foreground">
             <span className="font-semibold text-primary">{followedByCount}</span> {followedByLabel}
             </div>
+            <p>
+              {bio||"This user prefers to keep an air of mystery about them."}
+            </p>
 
         </div>
       </div>
     );
     
 };
+

@@ -30,6 +30,7 @@ const isPublicRoute = createRouteMatcher([
   "/",
   "/sign-in(.*)", 
   "/sign-up(.*)", 
+  "/:username",
   "/api/uploadthing",  // Ensure this is a public route
 ]);
 

@@ -53,7 +53,7 @@ export const createIngress = async (ingressType: IngressInput) => {
     roomName: self.id,
     participantName: self.username,
     participantIdentity: self.id,
-  };
+  }; 
 
   if (ingressType === IngressInput.WHIP_INPUT) {
     options.enableTranscoding = true; // Set enableTranscoding for WHIP_INPUT
