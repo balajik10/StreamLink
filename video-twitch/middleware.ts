@@ -31,7 +31,8 @@ const isPublicRoute = createRouteMatcher([
   "/sign-in(.*)", 
   "/sign-up(.*)", 
   "/:username",
-  "/api/uploadthing",  // Ensure this is a public route
+  "/api/uploadthing",
+  "/search"  // Ensure this is a public route
 ]);
 
 export default clerkMiddleware(async (auth, request) => {
