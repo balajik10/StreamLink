@@ -6,7 +6,14 @@ import { Thumbnail,ThumbnailSkeleton } from "@/components/thumbnail";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface ResultCardProps {
-  data: Stream & { user: User };
+  data:  { 
+    name: string;
+    id: string;
+    thumbnailUrl: string | null;
+    isLive: boolean;
+    updatedAt: Date; 
+    user: User;
+};
 }
 
 export const ResultCard = ({
